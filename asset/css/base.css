@@ -1,0 +1,263 @@
+:root {
+    --primary-color:#ee4d2d;
+    --white-color:#fff;
+    --black-color:#000;
+    --text-color:#333;
+    --border-color:#dbdbdb;
+    --gold-star-color:#ffce3e;
+    --header-height:120px;
+    --navbar-height:34px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+}
+
+* {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%; /*1rem 10px*/
+    line-height: 1.6rem;/*16px*/
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+/* Responsive */
+.grid {
+    width: 1200px;
+    max-width: 100%; /*khi thiết bị có kích thước nhỏ hơn 1200 sẽ co lại bằng 100% kích thước của thiết bị đó*/
+    margin: 0 auto;
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    display: flex;
+    flex-wrap: wrap;/*những thằng có kích thước vượt qua row sẽ tự động xuống hàng*/
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+/* Test */
+.grid__column-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 16.6667%;
+} /*12 col chia thanh 6 lan 2 col*/
+
+.grid__column-2-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 20%;
+} /*10 col chia lam 5 lan 2 col */
+
+.grid__column-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 83.3333%;
+}
+
+/* Animation */
+@keyframes fadeIn {/*Hiện dần lên*/
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    } to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    animation: fadeIn linear 0.1s;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__body {
+    --growth-from: 0.7;
+    --growth-to: 1;
+    margin: auto;
+    z-index: 1;
+    border-radius: 5px;
+    animation:growth linear 0.1s;
+}
+
+/* BUTTON */
+.btn {
+    text-decoration: none;
+    min-width: 124px;
+    height: 34px;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.4rem;
+    padding: 0;
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--white-color);
+    line-height: 3.4rem; /*nếu lỗi thì cho thành 1.6rem*/
+    transition: all ease 0.3s;
+} 
+
+.btn.btn--normal-cart:hover {
+    opacity: 0.8;
+}
+
+.btn.btn--normal:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn--disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.btn.btn--margin-right {
+    margin-right: 8px;
+}
+
+.btn.btn--size-s {
+    height: 32px;
+    font-size: 1.2rem;
+}
+
+.btn--active:active {
+    opacity: 0.1;
+    transition: all ease-in-out 0.3s;
+}
+
+/* SELECTION INPUT */
+.select-input {
+    min-width: 200px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 2px;
+    background: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.select-input::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 5px;
+    top: 100%;
+    left: 0;
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+.select-input__label {
+    font-size: 1.4rem;
+}
+
+.select-input__icon {
+    font-size: 1.4rem;
+    color: rgb(131, 131, 131);
+}
+
+/* filter price */
+.select-input__list {
+    padding: 8px 12px;
+    list-style-type: none;
+    background-color: var(--white-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    display: none;
+    z-index: 900;
+}
+
+
+
+/* .select-input__item {
+
+} */
+
+.select-input__link {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    padding: 8px 0;
+    transition: all ease 0.1s;
+}
+
+.select-input__link:hover {
+    color: var(--primary-color);
+}
+
+
+/* PAGINATION */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.pagination-item {
+    margin: 0 12px;
+}
+
+.pagination-item--active .pagination-item__link {
+    color: var(--white-color);
+    background: var(--primary-color);
+}
+
+.pagination-item--active .pagination-item__link:hover {
+    filter: brightness(90%);
+}
+
+.pagination-item__link {
+    --height:30px;
+    display: block;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #939393;
+    min-width: 40px;
+    height: var(--height);
+    line-height: var(--height);
+    text-align: center;
+}
+
+.pagination-item__icon {
+    color: #939393;
+}
