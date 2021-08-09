@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- LINK STYLESHEET FILE -->
-    <link rel="stylesheet" href="./asset/css/base.css">
-    <link rel="stylesheet" href="./asset/css/main.css">
+    <link rel="stylesheet" href="../asset/css/base.css">
+    <link rel="stylesheet" href="../asset/css/main.css">
+    <link rel="stylesheet" href="../asset/css/grid.css">
+    <link rel="stylesheet" href="../asset/css/responsive.css">
 
     <!--FONT FAMILY GOOGLE ROBOTO -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,9 +25,30 @@
 <body>
     <div class="wrapper">
         <header class="header">
-            <div class="grid"><!--CĂN GIỮA CHO NỘI DUNG NAV-->
+
+            <!-- THANH MENU MOBILE -->
+            <input type="checkbox" id="check-input-bar" hidden>
+            <label for="check-input-bar" class="overlay"></label>
+            <div class="menu-mobile">
+                <ul class="menu-mobile__list">
+                    <li class="menu-mobile__item">
+                        <a href="#" class="menu-mobile__link">Đăng nhập</a>
+                    </li>
+                    <li class="menu-mobile__item">
+                        <a href="#" class="menu-mobile__link">Đăng ký</a>
+                    </li>
+                    <li class="menu-mobile__item">
+                        <a href="#" class="menu-mobile__link">Trợ giúp</a>
+                    </li>
+                    <li class="menu-mobile__item">
+                        <a href="#" class="menu-mobile__link">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="grid wide"><!--CĂN GIỮA CHO NỘI DUNG NAV-->
                 <!-- START HEADER NAVBAR -->
-                <nav class="navbar">
+                <nav class="navbar hide-on-mobile-tablet">
                     <ul class="navbar__list">
                         <li class="navbar__item navbar__item--seperate open-QR">
                             <span>Biết nhiều thông tin hơn về tôi</span>
@@ -136,12 +159,23 @@
 
                 <!-- header with search -->
                 <div class="header-with-search">
-                    <div class="header-logo">
+
+                    <label for="check-input-bar" class="bar-mobile">
+                        <i class="bar-mobile__icon fa fa-bars" aria-hidden="true"></i>
+                    </label>
+
+                    <label for="check-input-search" class="header__mobile-search">
+                        <i class="header__mobile-search-icon fa fa-search" aria-hidden="true"></i>
+                    </label>
+
+                    <div class="header-logo hide-on-tablet">
                         <a href="/" class="header-logo__link"><img src="./asset/img/logo.png" alt="logo" class="header-logo__img"></a>
                     </div>
 
+                    <input type="checkbox" id="check-input-search" hidden>
+
                     <!-- THANH SEARCH -->
-                    <div class="header-search">
+                    <div class="header-search hide-on-mobile">
                         <div class="header-search__wrap"> <!--Nhóm input vs search- để dùng position-->
 
                             <!-- THANH INPUT TRONG SEARCH -->
@@ -268,7 +302,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="header-cart__product-item">
+                                    <!-- <li class="header-cart__product-item">
                                         <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/2/28/%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg/300px-%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg" alt="ảnh vivy" class="header-cart__product-img">
                                         <div class="header-cart__product-info">
                                             <div class="header-cart__product-info-head">
@@ -289,99 +323,7 @@
                                                 </span>
                                             </div>
                                         </div>
-                                    </li>
-
-                                    <li class="header-cart__product-item">
-                                        <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/2/28/%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg/300px-%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg" alt="ảnh vivy" class="header-cart__product-img">
-                                        <div class="header-cart__product-info">
-                                            <div class="header-cart__product-info-head">
-                                                <h5 class="header-cart__product-info-name">Tờ 50.000</h5>
-                                                <div class="price-quantity">
-                                                    <span class="header-cart__product-info-price">100.000đ</span>
-                                                    <span class="header-cart__product-info-multiply">x</span>
-                                                    <span class="header-cart__product-info-quantity">1</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="header-cart__product-info-body">
-                                                <span class="header-cart__product-info-description">
-                                                    Phân loại hàng: bạc
-                                                </span>
-                                                <span class="header-cart__product-info-delete">
-                                                    Xóa
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="header-cart__product-item">
-                                        <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/2/28/%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg/300px-%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg" alt="ảnh vivy" class="header-cart__product-img">
-                                        <div class="header-cart__product-info">
-                                            <div class="header-cart__product-info-head">
-                                                <h5 class="header-cart__product-info-name">Tờ 50.000</h5>
-                                                <div class="price-quantity">
-                                                    <span class="header-cart__product-info-price">100.000đ</span>
-                                                    <span class="header-cart__product-info-multiply">x</span>
-                                                    <span class="header-cart__product-info-quantity">1</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="header-cart__product-info-body">
-                                                <span class="header-cart__product-info-description">
-                                                    Phân loại hàng: bạc
-                                                </span>
-                                                <span class="header-cart__product-info-delete">
-                                                    Xóa
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="header-cart__product-item">
-                                        <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/2/28/%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg/300px-%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg" alt="ảnh vivy" class="header-cart__product-img">
-                                        <div class="header-cart__product-info">
-                                            <div class="header-cart__product-info-head">
-                                                <h5 class="header-cart__product-info-name">Tờ 50.000</h5>
-                                                <div class="price-quantity">
-                                                    <span class="header-cart__product-info-price">100.000đ</span>
-                                                    <span class="header-cart__product-info-multiply">x</span>
-                                                    <span class="header-cart__product-info-quantity">1</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="header-cart__product-info-body">
-                                                <span class="header-cart__product-info-description">
-                                                    Phân loại hàng: bạc
-                                                </span>
-                                                <span class="header-cart__product-info-delete">
-                                                    Xóa
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
-
-                                    <li class="header-cart__product-item">
-                                        <img src="https://upload.wikimedia.org/wikipedia/vi/thumb/2/28/%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg/300px-%C4%90%E1%BB%93ng_b%E1%BA%A1c_50.000.jpg" alt="ảnh vivy" class="header-cart__product-img">
-                                        <div class="header-cart__product-info">
-                                            <div class="header-cart__product-info-head">
-                                                <h5 class="header-cart__product-info-name">Tờ 50.000</h5>
-                                                <div class="price-quantity">
-                                                    <span class="header-cart__product-info-price">100.000đ</span>
-                                                    <span class="header-cart__product-info-multiply">x</span>
-                                                    <span class="header-cart__product-info-quantity">1</span>
-                                                </div>
-                                            </div>
-
-                                            <div class="header-cart__product-info-body">
-                                                <span class="header-cart__product-info-description">
-                                                    Phân loại hàng: bạc
-                                                </span>
-                                                <span class="header-cart__product-info-delete">
-                                                    Xóa
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    </li> -->
                                 </ul>
                                 <!-- END DANH SÁCH -->
 
@@ -391,12 +333,27 @@
                     </div>
                 </div>
             </div>
+
+            <ul class="sort-bar">
+                <li class="sort-bar__item">
+                    <a href="" class="sort-bar__link">Liên quan</a>
+                </li>
+                <li class="sort-bar__item sort-bar__item--active">
+                    <a href="" class="sort-bar__link">Mới nhất</a>
+                </li>
+                <li class="sort-bar__item">
+                    <a href="" class="sort-bar__link">Bán chạy</a>
+                </li>
+                <li class="sort-bar__item">
+                    <a href="" class="sort-bar__link">Giá</a>
+                </li>
+            </ul>
         </header>
 
         <div class="content-container">
-            <div class="grid">
-                <div class="grid__row contain">
-                    <div class="grid__column-2">
+            <div class="grid wide">
+                <div class="row contain sm-gutter">
+                    <div class="col l-2 m-0 c-0">
                         <!-- DANH MỤC -->
                         <nav class="category">
                             <h3 class="caterogy__heading">
@@ -428,8 +385,8 @@
     
                     </div>
     
-                    <div class="grid__column-10">
-                        <div class="home-filter">
+                    <div class="col l-10 m-12 c-12">
+                        <div class="home-filter hide-on-mobile-tablet">
                             <span class="home-filter__label">Sắp xếp theo</span>
                             <button class="home-filter__btn btn">Phổ biến</button>
                             <button class="home-filter__btn btn btn--primary">Mới nhất</button>
@@ -466,10 +423,78 @@
                             </div>
                         </div>
 
+                        <nav class="mobile-category">
+                            <ul class="mobile-category__list">
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="#" class="mobile-category__link">Dụng cụ & thiết bị tiện ích</a>
+                                </li>
+                            </ul>
+                        </nav>
+
                         <div class="product">
-                            <div class="grid__row">
+                            <div class="row sm-gutter">
                                 <!-- Start col 2-->
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -530,7 +555,7 @@
                                 <!-- END col 2-->
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -590,7 +615,7 @@
                                 </div>
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -650,7 +675,7 @@
                                 </div>
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -710,7 +735,7 @@
                                 </div>
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -770,7 +795,7 @@
                                 </div>
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -830,7 +855,7 @@
                                 </div>
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -890,7 +915,7 @@
                                 </div>
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -950,7 +975,7 @@
                                 </div>
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -1010,7 +1035,7 @@
                                 </div>
 
 
-                                <div class="grid__column-2-10">
+                                <div class="col l-2-4 m-4 c-6">
                                     <!-- start product item -->
                                     <a class="product-item" href="#">
 
@@ -1120,9 +1145,9 @@
         </div>
 
         <footer class="footer">
-            <div class="grid">
-                <div class="grid__row">
-                    <div class="grid__column-2-10">
+            <div class="grid wide">
+                <div class="row footer__content">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Chăm sóc khách hàng</h3>
 
                         <ul class="footer-list">
@@ -1140,7 +1165,7 @@
                         </ul>
                     </div>
 
-                    <div class="grid__column-2-10">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Giới thiệu</h3>
 
                         <ul class="footer-list">
@@ -1158,11 +1183,24 @@
                         </ul>
                     </div>
 
-                    <div class="grid__column-2-10">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Danh mục</h3>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">Danh mục 1</a>
+                            </li>
+
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">Danh mục 2</a>
+                            </li>
+
+                            <li class="footer-item">
+                                <a href="#" class="footer-item__link">Danh mục 3</a>
+                            </li>   
+                        </ul>
                     </div>
 
-                    <div class="grid__column-2-10">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Theo dõi chúng tôi</h3>
 
                         <ul class="footer-list">
@@ -1189,7 +1227,7 @@
                         </ul>
                     </div>
 
-                    <div class="grid__column-2-10">
+                    <div class="col l-2-4 m-8 c-12">
                         <h3 class="footer__heading">Vào của hàng trên ứng dụng</h3>
 
                         <div class="footer__download">
@@ -1211,7 +1249,7 @@
             </div>
 
             <div class="license">
-                <div class="grid">
+                <div class="grid wide">
                     <p class="license__text">@ 2021 - Bản quyền thuộc về Công ty ...</p>
                 </div>
             </div>
