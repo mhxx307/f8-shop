@@ -321,6 +321,10 @@
 }
 
 /* MODAL REGISTER AND LOGIN */
+.modal {
+    display:none;
+}
+
 .auth-form {
     width: 500px;
     background: var(--white-color);
@@ -1488,4 +1492,8 @@
     -webkit-user-select: none;
     -webkit-tap-highlight-color: transparent;
     padding: 0 6px;
+}
+
+.auth-form.active {
+    display: block;
 }

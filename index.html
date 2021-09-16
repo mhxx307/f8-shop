@@ -127,11 +127,11 @@
                                 trợ giúp
                             </a>
                         </li>
-                        <!-- <li class="navbar__item navbar__item--bold navbar__item--seperate">đăng ký</li>
-                        <li class="navbar__item navbar__item--bold">đăng nhập</li> -->
+                        <li class="navbar__item navbar__item--bold navbar__item--seperate btnDK">đăng ký</li>
+                        <li class="navbar__item navbar__item--bold btnDN">đăng nhập</li>
                         
                         <!-- USER -->
-                        <li class="navbar__item navbar__user">
+                        <li class="navbar__item navbar__user l-0">
                             
                                 <img src="https://png.pngtree.com/png-vector/20190223/ourmid/pngtree-vector-avatar-icon-png-image_695765.jpg" alt="user icon" class="navbar__user-icon">
                                 <span class="navbar__user-name">Minh Quân</span>
@@ -1257,25 +1257,25 @@
     </div>
 
     <!-- AUTHENTICATION FORM -->
-    <!-- <div class="modal"> -->
+    <div class="modal">
         <!-- LỚP PHỦ MỜ -->
-        <!-- <div class="modal__overlay"></div> -->
+        <div class="modal__overlay"></div>
 
         <!-- PHẦN HIỂN THỊ CỦA MODAL -->
-        <!-- <div class="modal__body"> -->
+        <div class="modal__body"> 
     
                 <!-- REGISTER -->
-                <!-- <div class="auth-form"> -->
+                <div class="auth-form registerForm"> 
                     <!-- CONTAINER CHỨA TỪ HEADER ==> CONTROL -->
-                    <!-- <div class="auth-form__container"> -->
+                    <div class="auth-form__container"> 
                         <!-- HEADER -->
-                        <!-- <div class="auth-form__header">
+                        <div class="auth-form__header">
                             <h3>Đăng Ký</h3>
                             <button class="auth-form__switch-btn">Đăng Nhập</button>
-                        </div> -->
+                        </div>
 
                         <!-- BODY INPUT -->
-                        <!-- <div class="auth-form__body">
+                        <div class="auth-form__body">
                             <div class="auth-form__group-input">
                                 <input type="text" class="auth-form__input" placeholder="Nhập email của bạn">
                             </div>
@@ -1285,25 +1285,25 @@
                             <div class="auth-form__group-input">
                                 <input type="text" class="auth-form__input" placeholder="Nhập lại mật khẩu của bạn">
                             </div>
-                        </div>  -->
+                        </div> 
 
                         <!-- POLICY REGISTER -->
-                        <!-- <div class="auth-form__aside">
+                        <div class="auth-form__aside">
                             <p class="auth-form__text">Bằng việc đăng ký bạn đã đồng ý với điều khoản dịch vụ mà mình bịa ra
                                 <a href="#" class="auth-form__link btn--active">Điều khoản dịch vụ</a> &
                                 <a href="#" class="auth-form__link btn--active">Chính sách bảo  mật</a>
                             </p>
-                        </div> -->
+                        </div> 
 
                         <!-- CONTROL BTN-->
-                        <!-- <div class="auth-form__control">
-                            <button class="btn btn--margin-right btn--normal">TRỞ LẠI</button>
+                        <div class="auth-form__control">
+                            <button class="btn btn--margin-right btn--normal btnReturn">TRỞ LẠI</button>
                             <button class="btn btn--primary btn--active">ĐĂNG KÝ</button>
                         </div>
-                    </div> -->
+                    </div>
 
                     <!-- SOCIAL LINK -->
-                    <!-- <div class="auth-form__social">
+                    <div class="auth-form__social">
                         <button class="btn btn--size-s btn--withIcon btn-facebook btn--active">
                             <i class="icon-facebook auth-form__social-icon fa fa-facebook-official" aria-hidden="true"></i>
                             <span class="auth-form__social-label">
@@ -1317,10 +1317,10 @@
                             </span>
                         </button>
                     </div>
-                </div> -->
+                </div> 
 
                 <!-- LOGIN -->
-                <!-- <div class="auth-form"> 
+                <div class="auth-form loginForm"> 
                     <div class="auth-form__container">
                         <div class="auth-form__header">
                             <h3>Đăng Nhập</h3>
@@ -1345,7 +1345,7 @@
                         </div>
 
                         <div class="auth-form__control">
-                            <button class="btn btn--margin-right btn--normal">TRỞ LẠI</button>
+                            <button class="btn btn--margin-right btn--normal btnReturn">TRỞ LẠI</button>
                             <button class="btn btn--primary btn--active">ĐĂNG NHẬP</button>
                         </div>
                     </div>
@@ -1367,6 +1367,58 @@
                 </div>   
             </div>
         </div>
-    </div> -->
+    </div> 
+
+    <script>
+        var btnReturns = document.querySelectorAll('.btnReturn');
+        var modal = document.querySelector('.modal');
+        var overlay = document.querySelector('.modal__overlay');
+        var btnDKS = document.querySelectorAll('.btnDK');
+        var btnDNS = document.querySelectorAll('.btnDN');
+        var registerForm = document.querySelector('.registerForm');
+        var loginForm = document.querySelector('.loginForm');
+
+        btnReturns.forEach(function(btnReturn) {
+            btnReturn.onclick = function() {
+                modal.style.display = 'none';
+                loginForm.classList.remove('l-0');
+                registerForm.classList.remove('l-0');
+            }
+        });
+
+        overlay.onclick = function() {
+            modal.style.display = 'none';
+            loginForm.classList.remove('l-0');
+            registerForm.classList.remove('l-0');
+        };
+
+        btnDKS.forEach(function(btnDK) {
+            btnDK.onclick = function() {
+                modal.style.display = 'flex';
+                loginForm.classList.add('l-0');
+            }
+        })
+
+        btnDNS.forEach(function(btnDN) {
+            btnDN.onclick = function() {
+                modal.style.display = 'flex';
+                registerForm.classList.add('l-0');
+            }
+        })
+
+
+        // var switchs = document.querySelectorAll('.auth-form__switch-btn');
+        // var authForms = document.querySelectorAll('.auth-form');
+
+        // switchs.forEach(function(switchItem, index) {
+        //     var authForm = authForms[index];
+        //     authForm.classList.remove('active');
+
+        //     switchItem.onclick = function() {
+        //         console.log(authForm)
+        //         authForm.classList.add('active');
+        //     }
+        // });
+    </script>
 </body>
 </html>
